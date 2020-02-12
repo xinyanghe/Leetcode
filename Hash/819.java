@@ -5,6 +5,8 @@ class Solution {
         Set<String> ban = new HashSet<>(Arrays.asList(banned));//方法：数组转换arraylist
         Map<String, Integer> count = new HashMap<>();
         String[] words = paragraph.replaceAll("\\W+"," ").toLowerCase().split("\\s+");
+        //可改为
+        //String[] words = paragraph.toLowerCase().split("\\W+");
         //正则表达式：双引号，‘+’表示匹配多个，‘\’表示转义符，‘\w’表示匹配字符数字下划线，'\W'表示匹配除‘w’之外所有，‘\s’表示匹配空格
         for (String w : words) 
             if (!ban.contains(w))
