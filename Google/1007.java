@@ -9,12 +9,11 @@ class Solution {
             if (A[i] == B[i])
                 same[A[i]] ++;
         }
-        int min = A.length;
         for (int i = 1; i <= 6; i ++) {
             if (cA[i] + cB[i] - same[i] == A.length) {
-                min = Math.min(min, Math.min(cA[i], cB[i]) - same[i]);
+                return (Math.min(cA[i], cB[i]) - same[i]);
             }
         }
-        return (min == A.length ? -1 : min);
+        return -1;
     }
 }
