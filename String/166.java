@@ -2,9 +2,9 @@ class Solution {
     public String fractionToDecimal(int numerator, int denominator) {
         if (numerator == 0)
             return "0";
-        StringBuilder res = new StringBuilder();
+        StringBuilder res = new StringBuilder(); //Java 6 特性，可以往字符串中间和后面加东西 .append .insert
         res.append(((numerator > 0) ^ (denominator > 0)) ?  "-" : "");
-        long num = Math.abs((long)numerator);
+        long num = Math.abs((long)numerator); //注意数据类型转换
         long den = Math.abs((long)denominator);
         
         res.append(num / den);
