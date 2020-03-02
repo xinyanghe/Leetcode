@@ -1,3 +1,27 @@
+//DFS
+class Solution {
+    private void restore(List<String> res, String s, int k, String path) {
+        if (s.isEmpty() || k == 4) {
+            if (s.isEmpty() && k == 4)
+                res.add(path.substring(1));
+            return;
+        }
+        for (int i = 1; i <= (s.charAt(0) == '0' ? 1 : 3) && i <= s.length(); i++) {
+            String part = s.substring(0, i);
+            if (Integer.valueOf(part) <= 255)
+                restore(res, s.substring(i), k + 1, path + "." + part);
+        }
+    }
+    
+    public List<String> restoreIpAddresses(String s) {
+        List<String> res = new ArrayList<>();
+        restore(res, s, 0, "");
+        return res;
+    }
+}
+
+
+//Chen Duxiu
 class Solution {
     public List<String> restoreIpAddresses(String s) {
         List<String> res = new ArrayList<>();
